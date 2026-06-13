@@ -1,0 +1,640 @@
+/* ========== GLOBAL RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+/* ========== BASE RESPONSIVE FONT SIZING ========== */
+html {
+    font-size: clamp(14px, 2vw, 16px); /* Fluid base font size for all breakpoints */
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* ========== MAIN CONTAINER LAYOUT ========== */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    min-height: 100vh;
+}
+
+/* Two-column layout for desktop (900px+) */
+@media (min-width: 900px) {
+    .container {
+        flex-direction: row;
+        gap: clamp(2rem, 4vw, 3rem);
+    }
+}
+
+/* ========== LEFT SIDEBAR - PROFILE SECTION ========== */
+.container_1 {
+    height: fit-content;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: clamp(1.25rem, 3vw, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 2rem);
+    background-color: rgb(26, 26, 26);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    width: 100%;
+}
+
+/* Sticky sidebar on desktop, full width on mobile */
+@media (min-width: 900px) {
+    .container_1 {
+        width: 300px;
+        min-width: 300px;
+        position: sticky;
+        top: clamp(1rem, 2vw, 1.5rem);
+        height: fit-content;
+        flex-shrink: 0;
+    }
+}
+
+/* Responsive width adjustments for tablet */
+@media (min-width: 768px) and (max-width: 899px) {
+    .container_1 {
+        width: 100%;
+    }
+}
+
+/* ========== PROFILE PHOTO ========== */
+.container_1_a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    text-align: center;
+}
+
+.my_photo img {
+    border: 2px solid black;
+    border-radius: 50%;
+    height: clamp(100px, 20vw, 150px);
+    width: clamp(100px, 20vw, 150px);
+    object-fit: cover;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+/* ========== NAME & POSITION ========== */
+.my_name {
+    color: white;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+}
+
+.my_name h1 {
+    font-size: inherit;
+    margin: 0;
+}
+
+.my_position {
+    color: yellow;
+    background-color: black;
+    padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.8rem, 1.5vw, 1rem);
+    border-radius: 5px;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    white-space: nowrap;
+}
+
+/* ========== CONTACT INFO SECTION ========== */
+.container_1_b {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    border-top: 3px solid yellow;
+    padding: clamp(1rem, 2vw, 1.5rem) 0 0 clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+@media (max-width: 899px) {
+    .container_1_b {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.my_mail,
+.my_phone_number,
+.my_location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.my_mail span,
+.my_phone_number span,
+.my_location span {
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    color: white;
+}
+
+.my_mail p,
+.my_phone_number p,
+.my_location p {
+    font-weight: 400;
+    font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+    color: rgb(95, 94, 94);
+    margin: 0;
+    word-break: break-word;
+}
+
+/* ========== SOCIAL LINKS ========== */
+.container_1_c {
+    text-align: center;
+    border-top: 3px solid yellow;
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    flex-wrap: wrap;
+}
+
+.container_1_c a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    text-decoration: none;
+}
+
+.container_1_c img {
+    height: clamp(24px, 5vw, 35px);
+    width: auto;
+    filter: grayscale(1) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.container_1_c a:hover img {
+    filter: grayscale(0) invert(0);
+}
+
+/* ========== MAIN CONTENT AREA ========== */
+.container_2 {
+    height: 100%;
+    border: 1px solid black;
+    background-color: rgb(26, 26, 26);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 4vw, 3rem);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .container_2 {
+        flex: 1;
+    }
+}
+
+/* ========== NAVIGATION BAR ========== */
+.navigation_bar {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Horizontal nav on desktop */
+@media (min-width: 768px) {
+    .navigation_bar {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: clamp(1rem, 2vw, 1.5rem);
+        align-items: center;
+    }
+}
+
+.navigation_bar a {
+    text-decoration: none;
+    color: white;
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.875rem);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    touch-action: manipulation;
+}
+
+.navigation_bar a:hover {
+    color: grey;
+}
+
+/* ========== INTRODUCTION/ABOUT SECTION ========== */
+.container_2_a {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    border-top: 3px solid yellow;
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.about_me {
+    color: white;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+}
+
+.about_me h1 {
+    font-size: inherit;
+    margin: 0;
+}
+
+.disc {
+    color: grey;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    line-height: 1.6;
+}
+
+.disc p {
+    padding: clamp(0.3rem, 0.5vw, 0.5rem) 0;
+    margin: 0;
+}
+
+/* ========== SKILLS SECTION ========== */
+.container_2_b {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.skill_heading {
+    color: white;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    border-top: 3px solid yellow;
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0 0 0;
+    margin: 0;
+}
+
+.skill_heading h1 {
+    font-size: inherit;
+    margin: 0;
+}
+
+.container_2_b_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* ========== SKILLS GRID - RESPONSIVE ========== */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Mobile: 2 columns */
+@media (min-width: 300px) {
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 500px) {
+    .skills {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 900px) {
+    .skills {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ========== SKILL CARDS ========== */
+.skill_container {
+    height: clamp(140px, 20vw, 180px);
+    aspect-ratio: 1;
+    border: 2px solid rgb(9, 9, 9);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 0.75rem);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.skill_container:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.skill_image img {
+    height: clamp(80px, 15vw, 120px);
+    width: auto;
+    max-width: 90%;
+    filter: invert(75%) sepia(50%) saturate(1000%) hue-rotate(350deg) brightness(110%) contrast(101%);
+}
+
+.skill_name {
+    color: grey;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    font-weight: 500;
+}
+
+/* ========== PORTFOLIO SECTION ========== */
+.container_2_c {
+    padding: clamp(2rem, 3vw, 2.5rem) 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.portfolio_heading {
+    color: white;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 900;
+    border-top: 3px solid yellow;
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0 0 0;
+    margin: 0;
+}
+
+.portfolio_heading h1 {
+    font-size: inherit;
+    margin: 0;
+}
+
+.conatiner_2_c_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ========== PORTFOLIO GRID - RESPONSIVE ========== */
+.portfolio {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 2.5vw, 2rem);
+    padding: clamp(1.5rem, 2vw, 2rem) 0;
+    width: 100%;
+}
+
+/* 2 columns on tablet+ */
+@media (min-width: 500px) {
+    .portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: clamp(1.75rem, 3vw, 2.5rem);
+    }
+}
+
+/* ========== PORTFOLIO CARDS ========== */
+.portfolio_container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 2px solid black;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.portfolio_container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.portfolio_image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.portfolio_image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+/* ========== PORTFOLIO CONTENT ========== */
+.protfolio_disc {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1rem, 1.5vw, 1.25rem);
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    flex-grow: 1;
+}
+
+.website_name {
+    color: white;
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    font-weight: 600;
+}
+
+.website_name h3 {
+    font-size: inherit;
+    margin: 0;
+}
+
+.about_website {
+    color: grey;
+    font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.about_website p {
+    padding: clamp(0.25rem, 0.5vw, 0.3rem) 0;
+    margin: 0;
+}
+
+.about_website span {
+    color: rgb(255, 255, 255);
+    background-color: rgb(39, 39, 31);
+    padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.3rem, 0.6vw, 0.4rem);
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    white-space: nowrap;
+}
+
+/* ========== EDUCATION & AWARDS SECTION ========== */
+.container_2_d {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: clamp(2rem, 3vw, 3rem);
+    border-top: 3px solid yellow;
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0;
+}
+
+.edu_heading {
+    color: white;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    margin: 0;
+}
+
+.edu_heading h1 {
+    font-size: inherit;
+    margin: 0;
+}
+
+/* ========== EDUCATION ITEMS ========== */
+.edu_1 {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    padding: clamp(0.75rem, 1.5vw, 1rem) 0;
+}
+
+@media (min-width: 600px) {
+    .edu_1 {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: clamp(1rem, 2vw, 1.5rem);
+    }
+}
+
+.edu_1_a {
+    color: white;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    line-height: 1.6;
+    flex: 1;
+    word-break: break-word;
+}
+
+.edu_1_a span {
+    color: yellow;
+    background-color: rgb(58, 58, 24);
+    padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.65rem);
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 0.35rem;
+}
+
+.edu_1_b {
+    color: grey;
+    font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+    white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+    .edu_1_b {
+        white-space: normal;
+    }
+}
+
+.grade {
+    color: white;
+    padding: clamp(0.5rem, 1vw, 0.75rem) 0;
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    margin-top: clamp(0.5rem, 1vw, 0.75rem);
+}
+
+.grade span {
+    color: yellow;
+    background-color: rgb(58, 58, 24);
+    padding: clamp(0.2rem, 0.4vw, 0.3rem) clamp(0.5rem, 1vw, 0.65rem);
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 0.35rem;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    color: white;
+    border-top: 3px solid yellow;
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0 0 0;
+    text-align: center;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    margin-top: auto;
+}
+
+/* ========== ENSURE NO HORIZONTAL OVERFLOW ========== */
+* {
+    max-width: 100%;
+}
+
+/* ========== TOUCH-FRIENDLY IMPROVEMENTS ========== */
+@media (max-width: 480px) {
+    a, button {
+        min-height: 44px; /* Apple touch target minimum */
+    }
+}
+
+/* ========== FINE-TUNE MOBILE SPACING ========== */
+@media (max-width: 320px) {
+    .container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .skill_container {
+        height: 120px;
+    }
+}
+
